@@ -55,7 +55,7 @@ TAU = 1e-3              # for soft update of target parameters
 LR = 5e-4               # learning rate 
 UPDATE_FREQUENCY = 4    # network update frequency
 eps_start=1.0           # Epsilon Greedy: Initial value 
-eps_end=0.02            # Epsilon Greedy: Smallest value 
+eps_end=0.01            # Epsilon Greedy: Smallest value 
 eps_decay=0.995         # Epsilon Greedy: deca factor 
 ```
 
