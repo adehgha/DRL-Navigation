@@ -25,7 +25,7 @@ There are several components in the training algorithm:
 
 1. **Replay Buffer**. *Experience tuples* `(S, A, R, S', done)` namely `state`, `action`, `reward`, `next_state` and `done` are gathered in batches with the defined size. This buffer is used to train the agent by random sampling (area for improvement). The implementation is identical to what was provided in the [DQN](https://github.com/udacity/deep-reinforcement-learning/tree/master/dqn) practice project.
 
-2. **TD Learning**. The TD learning algorithm is used to update the neural network parameters. Namely, we hope for each experience tuple `(S, A, R, S', done)`, the Q score `Q(S, A)` can be closed to the following TD-target
+2. **TD Learning**. Temporal difference learning is used in this implementation to update the current estimates:
     
         TD-target = Reward + GAMMA * argmax Q(S', a) * (1-dones) 
     
