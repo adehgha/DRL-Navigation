@@ -94,7 +94,7 @@ The following areas of are to be explored.
 
 * **A3C vs. DDPG**: Comparing the performance of DDPG vs. A3C.
 
-* **PPO/TRPO/D4PG vs. DDPG**: Comparing the performance of DDPG vs. more robust algorithms such as TRPO, PPO, D4PG.
+* **PPO/TRPO vs. DDPG**: Comparing the performance of DDPG vs. more robust algorithms such as TRPO, PPO.
 
 * **Buffer Prioritization**: Smart use of the buffer and prioritizing the rare and important events with non-uniform sampling.
 
