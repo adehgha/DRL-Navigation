@@ -8,4 +8,8 @@
 
 ## Project 2 -  yet to be completed
 
+![](https://github.com/adehgha/Deep_RL_Projects/blob/master/project%202-continuous_control/image/trained_agent.gif)
+
+[Click](https://github.com/adehgha/Deep_RL_Projects/tree/master/project%202-continuous_control) to see the report
+
 ## Project 3 -  yet to be completed
