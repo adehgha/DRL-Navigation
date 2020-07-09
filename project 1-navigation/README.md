@@ -39,8 +39,8 @@ There are several components in the training algorithm:
 
 ### Network Architecture
 A feedforward neural network with two hidden layers. 
-* **layer 1**: Takes the current state of the banana environment, (vector of 37 elements).
-* **layer 2 and 3**: Two hidden layers with 64 neurons each.
+* **Input Layer**: Takes the current state of the banana environment, (vector of 37 elements).
+* **layer 1 and 2**: Two hidden layers with 64 neurons each.
 * **Output layer**:  The output layer computes the scores for each of the 4 possible actions.
 
 
