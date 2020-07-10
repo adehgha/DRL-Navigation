@@ -6,7 +6,7 @@
 
 [Click](https://github.com/adehgha/Deep_RL_Projects/tree/master/project%201-navigation) to see the report.
 
-## Project 2 -  yet to be completed
+## Project 2 - Continuous Control
 
 ![](https://github.com/adehgha/Deep_RL_Projects/blob/master/project%202-continuous_control/image/trained_agent.gif)
 
