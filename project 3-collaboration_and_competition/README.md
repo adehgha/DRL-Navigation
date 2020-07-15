@@ -29,10 +29,9 @@ Apart from the source code the following files are necessary, hence are included
 The [DDPG-pendulum](https://github.com/udacity/deep-reinforcement-learning/tree/master/ddpg-pendulum) practice project has been used as the starting point for completing this project.
 
 ### Training Algorithm (MADDPG)
-Multi Agent Deep Deterministic Policy Gradient algorithm (MADDPG) is used for solving this environment. The principles of the MADDPG is based on DDPG with clever modifications to make multi-agent learning possible.
-The following components are critical to MADDPG training algorithm . DDPG is described in detail [here in project 2](https://github.com/adehgha/Deep_RL_Projects/tree/master/project%202-continuous_control).
+Multi Agent Deep Deterministic Policy Gradient algorithm (MADDPG) is used for solving this environment. The principles of the MADDPG is based on DDPG with clever modifications to make multi-agent learning possible. The following components are critical to MADDPG training algorithm:
 
-1. **[DDPG](https://arxiv.org/pdf/1509.02971.pdf)** is inherently an actor-critic algorithm. In DDPG the actor is being trained to find the best action given a known state, and the critic is trained to predict an estimate of the score given a state-action pair. Several similarities can be drawn between DDPG and DQN. For instance similar to DQN, actor and critic networks have local and target networks. It however differs from DQN since the critic is used to approximate the maximum Q-values. MADDPG is simply multiple DDPG agent that all learn from a joint replay buffer. Each agent has its own local and target actor/critic networks that are trained.
+1. **[DDPG](https://arxiv.org/pdf/1509.02971.pdf)** is inherently an actor-critic algorithm. In DDPG the actor is being trained to find the best action given a known state, and the critic is trained to predict an estimate of the score given a state-action pair. Several similarities can be drawn between DDPG and DQN. For instance similar to DQN, actor and critic networks have local and target networks. It however differs from DQN since the critic is used to approximate the maximum Q-values. MADDPG is simply multiple DDPG agents that all learn from a joint replay buffer. Each agent has its own local and target actor/critic networks that are trained independently.
 
 2. Two **Actor Networks**, each with local and target networks. The actor networks generally map states to actions.
 
@@ -65,7 +64,7 @@ WEIGHT_DECAY = 0         # L2 weight decay
 The hyperparameters are tuned in a non-systematic way. The following observation are noteworthy.
 * **GAMMA**: Faster and more reliable training was observed when I eliminated discount factor i.e. GAMMA=1.
 * **LR_ACTOR**: For the chosen architecture, smaller learning rate for the actor networks leads to faster convergence (1e-4).
-* **LR_CRITIC**: The critic network learns faster and can use larger learning rates (1e-3) for faster convergence.
+* **LR_CRITIC**: The critic networks learn faster and can use larger learning rates (1e-3) for faster convergence.
 
 ## How to train the model
 Open the `collab_compet.ipynb` notebook and run all cells from the beginning till the end of "Train and Serialize the Trained Agents".
@@ -80,12 +79,12 @@ After training the model, run the "Training performance" to visualize the histor
 
 ![](./image/scores.png)
 
-It can be observed that the superimposed moving average of the scores does not follow a clear trend until around episode=1100. It then starts to increase gradually demonstrating the intermittent but consistent improvement of the agent along with good exploration of the solution space (using the induced noise).
-The agents (on average) achieve the target score of **0.5 after 1781 episodes** and on average score 0513 in the last 100 episodes.
+It can be observed that the superimposed moving average of the scores does not follow a clear trend until around episode=1100. It then starts to increase gradually demonstrating the non-monotonic but consistent improvement of the agent along with good exploration of the solution space (using the induced noise).
+The agents (on average) achieve the target score of **0.5 after 1781 episodes** and on average score 0.513 in the last 100 episodes.
 
 ### Play the agent
 To watch the trained agents play, you must run all cells in the provided notebook **except** the cell titled: "Train and Serialize the Trained Agents".
-Note that this cell does not require a training step and can be tried at anytime. The serialized trained networks, `actor_agent_0.pth`, `actor_agent_1.pth`, `critic_agent_0.pth` and, `critic_agent_1.pth` are provided in the repository.
+Note that the last cell does not require a training step and can be tried at anytime. The serialized trained networks, `actor_agent_0.pth`, `actor_agent_1.pth`, `critic_agent_0.pth` and, `critic_agent_1.pth` are provided in the repository.
 You can changed the number of episodes played by changing the `n_episodes`.
 The following animation is obtained from playing the trained agents.
 
@@ -93,7 +92,7 @@ The following animation is obtained from playing the trained agents.
 
 
 ## Future Work
-The following areas of are to be explored.
+The following areas are to be explored.
 
 * **Systematic Hyperparameter Tuning**: Using robust optimization techniques (e.g. black box) to find the optimal hyperparameters.
 
