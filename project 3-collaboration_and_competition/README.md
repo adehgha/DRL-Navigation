@@ -30,9 +30,7 @@ The [DDPG-pendulum](https://github.com/udacity/deep-reinforcement-learning/tree/
 
 ### Training Algorithm (MADDPG)
 Multi Agent Deep Deterministic Policy Gradient algorithm (MADDPG) is used for solving this environment. The principles of the MADDPG is based on DDPG with clever modifications to make multi-agent learning possible.
-There are several components in the DDPG training algorithm:
-
-and is identical to what I have already reported [here in project 2](https://github.com/adehgha/Deep_RL_Projects/tree/master/project%202-continuous_control).
+The following components are critical to MADDPG training algorithm . DDPG is described in detail [here in project 2](https://github.com/adehgha/Deep_RL_Projects/tree/master/project%202-continuous_control).
 
 1. **[DDPG](https://arxiv.org/pdf/1509.02971.pdf)** is inherently an actor-critic algorithm. In DDPG the actor is being trained to find the best action given a known state, and the critic is trained to predict an estimate of the score given a state-action pair. Several similarities can be drawn between DDPG and DQN. For instance similar to DQN, actor and critic networks have local and target networks. It however differs from DQN since the critic is used to approximate the maximum Q-values. MADDPG is simply multiple DDPG agent that all learn from a joint replay buffer. Each agent has its own local and target actor/critic networks that are trained.
 
@@ -74,6 +72,8 @@ Open the `collab_compet.ipynb` notebook and run all cells from the beginning til
 To train the model on the GPU, uncomment the following line in the "Hyperparameters" cell:
 
         device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+
+The `tennis_player_maddpg` is first initialized with noise level of 0.5 and no decay. The noise is then turned off after 30000 time steps. The `train` method is called from tennis_player instance which in turn creates a `multi_agent_ddpg` instance and runs the training algorithm for maximum of 8000 episodes each with maximum of 1000 actions. The environment never reaches 8000 episodes and converges in 1781 episodes.
 
 ## Training performance
 After training the model, run the "Training performance" to visualize the history of the scores as the learning proceeds.
