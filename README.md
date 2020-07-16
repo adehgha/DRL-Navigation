@@ -12,7 +12,7 @@
 
 [Click](https://github.com/adehgha/Deep_RL_Projects/tree/master/project%202-continuous_control) to see the report
 
-## Project 3 -  yet to be completed
+## Project 3 - Project 3: Multi-agent Collaboration and Competition
 
 ![](https://github.com/adehgha/Deep_RL_Projects/blob/master/project%203-collaboration_and_competition/image/trained_agents.gif)
 
